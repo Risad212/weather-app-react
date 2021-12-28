@@ -3,22 +3,23 @@ import './Display.css'
 
 
 const Display = (props) => {
-//    const {main} = props.city
-   console.log(props.city)
+   const {name, main,wind} = props.city
+   const {icon, description} = props.city.weather[0]
+
+  document.body.style.backgroundImage = "url('https://source.unsplash.com/1600x900/?" + name + "')";
+
    
-
-
     return (
         <>
            <section className='weatherDisplay'>
-            <h3>name</h3>
-             <h4>51°C</h4>
+            <h3>{name}</h3>
+             <h4>{`${main.temp} °C`}</h4>
              <div className='wrapper'>
-              <img src="https://openweathermap.org/img/wn/04n.png" alt="" class="icon" />
-              <h4 class="description">hello</h4>
+              <img src={`https://openweathermap.org/img/wn/${icon}.png`} alt="" class="icon" />
+              <h4 class="description">{description}</h4>
            </div>
-             <p className='humidity'>Humidity: 60%</p>
-              <p className='wind'>Wind speed: 6.2 km/h</p>
+             <p className='humidity'>{`humidity ${main.humidity}%`}</p>
+              <p className='wind'>{`Wind speed: ${wind.deg} km/h`}</p>
            </section>
         </>
     );

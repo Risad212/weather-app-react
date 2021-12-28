@@ -7,7 +7,7 @@ import './Tempapp.css';
 const Tempapp = () => {
     const [city, setCity] = useState()
 
-    const [search , setSearch] = useState('dhaka')
+    const [search , setSearch] = useState('london')
 
     function searchBtn(){
       let userValue = document.getElementById('inputCity').value;
@@ -15,20 +15,25 @@ const Tempapp = () => {
     }
 
     useEffect(() =>{
-     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=ba50a4ec255c0e7036508cb12d91e465`)
+     fetch(`https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=ba50a4ec255c0e7036508cb12d91e465`)
       .then(res => res.json())
       .then(data => setCity(data))
     },[])
 
-    
-
+   
     return (
         <div>
            <section className="Tempwrapper">
-               <h2>{search}</h2>
+               <h2>Search City</h2>
                <input type="text" placeholder='search city' id="inputCity" />
                <button onClick={searchBtn}>Search</button>
-                 <Display city={city}></Display>
+                {
+                  !city ? (
+                    <p>Data not found</p>
+                  ): (
+                    <Display city={city}></Display>
+                  )
+                }
            </section>
         </div>
     );

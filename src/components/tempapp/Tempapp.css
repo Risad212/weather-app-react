@@ -4,6 +4,7 @@
     padding: 2rem 6rem;
     opacity: 0.9;
     border-radius: 15px;
+    z-index: 100;
 }
 .Tempwrapper h2{
     font-size: 35px;
