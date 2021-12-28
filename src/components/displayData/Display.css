@@ -1,0 +1,30 @@
+.weatherDisplay h3 {
+    font-size: 30px;
+    font-weight: 800;
+    margin-top: 20px;
+    margin-bottom: 0px;
+}
+.weatherDisplay h4 {
+    font-size: 2rem;
+    margin-bottom: 14px;
+    font-weight: 800;
+    margin-top: 15px;
+}
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wrapper .description{
+    font-size: 22px;
+}
+
+.weatherDisplay .humidity{
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.weatherDisplay .wind{
+    font-size: 22px;
+    font-weight: 700;
+}
