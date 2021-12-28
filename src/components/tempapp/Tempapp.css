@@ -32,3 +32,9 @@
     color: #777;
     border: none;
 }
+
+@media screen and (max-width: 570px){
+    .Tempwrapper{
+        padding: 1rem 4rem;
+    }
+}
