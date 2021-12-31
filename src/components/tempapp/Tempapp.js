@@ -26,11 +26,9 @@ const Tempapp = () => {
     fetchApi()
     },[]);
     
-    // const {name} = city
-    // const {temp,humidity} = city.main
-    // const {speed} = city.wind
-    // const {icon} = city.weather
-    console.log(city)
+    
+   document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${city.name}')`
+    
     return (
         <div>
            <section className="Tempwrapper">
@@ -39,14 +37,14 @@ const Tempapp = () => {
                <button onClick={searchBtn}>Search</button>
                 {/* display data  */}
                 <section className='weatherDisplay'>
-                  <h3>{name}</h3>
-                  <h4>{`${temp} °C`}</h4>
+                  <h3>{city.name}</h3>
+                  <h4>{`${city.main.temp} °C`}</h4>
                   <div className='wrapper'>
-                    <img src={`https://openweathermap.org/img/wn/56`} alt="" class="icon" />
-                    <h4 class="description">cloud</h4>
+                    <img src={`https://openweathermap.org/img/wn/${city.weather[0].icon}.png`} alt="" class="icon" />
+                    <h4 class="description">{city.weather[0].description}</h4>
                 </div>
-                  <p className='humidity'>{`Humidity ${humidity}%`}</p>
-                    <p className='wind'>{`Wind speed ${speed} km/h`}</p>
+                  <p className='humidity'>{`Humidity ${city.main.humidity}%`}</p>
+                    <p className='wind'>{`Wind speed ${city.wind.speed} km/h`}</p>
                 </section>
            </section>
         </div>
